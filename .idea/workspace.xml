@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b173db3-f6b3-46a5-b2e9-686ec867bdde" name="Default" comment="" />
+    <list default="true" id="7b173db3-f6b3-46a5-b2e9-686ec867bdde" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="test.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -222,7 +225,16 @@
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.0.6.RELEASE/spring-web-4.0.6.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="214" column="0" selection-start="8302" selection-end="8302" vertical-scroll-proportion="0.0" vertical-offset="2982" max-vertical-offset="4216">
-              <folding />
+              <folding>
+                <element signature="e#0#10724#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#3376#3377#0" expanded="false" />
+                <element signature="e#3425#3426#0" expanded="false" />
+                <element signature="e#3642#3643#0" expanded="false" />
+                <element signature="e#3691#3692#0" expanded="false" />
+                <element signature="e#3999#4000#0" expanded="false" />
+                <element signature="e#4060#4061#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -230,7 +242,7 @@
       <file leaf-file-name="Application.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="31" selection-start="416" selection-end="416" vertical-scroll-proportion="0.55737704" vertical-offset="17" max-vertical-offset="493">
+            <state line="12" column="24" selection-start="384" selection-end="384" vertical-scroll-proportion="0.510929" vertical-offset="17" max-vertical-offset="493">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -253,6 +265,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -318,7 +333,7 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -996,12 +1011,12 @@
       <updated>1407754315603</updated>
       <workItem from="1407754318898" duration="2244000" />
       <workItem from="1407756572481" duration="1654000" />
-      <workItem from="1407758253278" duration="12808000" />
+      <workItem from="1407758253278" duration="14189000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16706000" />
+    <option name="totallyTimeSpent" value="18087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1071,7 +1086,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="12" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1173">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1110,7 +1125,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="12" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0" vertical-offset="383" max-vertical-offset="1173">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1248,7 +1263,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="5" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="459">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1290,7 +1305,16 @@
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.0.6.RELEASE/spring-web-4.0.6.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="214" column="0" selection-start="8302" selection-end="8302" vertical-scroll-proportion="0.0" vertical-offset="2982" max-vertical-offset="4216">
-          <folding />
+          <folding>
+            <element signature="e#0#10724#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3376#3377#0" expanded="false" />
+            <element signature="e#3425#3426#0" expanded="false" />
+            <element signature="e#3642#3643#0" expanded="false" />
+            <element signature="e#3691#3692#0" expanded="false" />
+            <element signature="e#3999#4000#0" expanded="false" />
+            <element signature="e#4060#4061#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1336,7 +1360,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="27" selection-start="824" selection-end="824" vertical-scroll-proportion="0.19130434" vertical-offset="427" max-vertical-offset="1054">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1357,7 +1381,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="31" selection-start="416" selection-end="416" vertical-scroll-proportion="0.55737704" vertical-offset="17" max-vertical-offset="493">
+        <state line="12" column="24" selection-start="384" selection-end="384" vertical-scroll-proportion="0.510929" vertical-offset="17" max-vertical-offset="493">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
