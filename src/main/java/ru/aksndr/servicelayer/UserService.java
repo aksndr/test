@@ -7,7 +7,7 @@ package ru.aksndr.servicelayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ru.aksndr.datalayer.CollectionLayer;
+import ru.aksndr.datalayer.DataLayer;
 import ru.aksndr.model.User;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +17,7 @@ import java.util.Map;
 //@EnableAutoConfiguration
 public class UserService {
     @Autowired
-    CollectionLayer dataLayer;
+    DataLayer dataLayer;
 
     @RequestMapping(value = UserServiceApi.USERS_PATH, method = RequestMethod.GET)
     @ResponseBody

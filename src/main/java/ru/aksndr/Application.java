@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EntityScan(basePackages = "ru.aksndr.model")
 public class Application {
-    private static final String MAX_REQUEST_SIZE = "150MB";
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

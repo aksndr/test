@@ -1,10 +1,7 @@
 package ru.aksndr.datalayer;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import ru.aksndr.model.User;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -12,17 +9,16 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * Created by aksndr on 11.08.14.
  */
-@Component
-public class CollectionLayer implements UsersDataLayer{
+public class CollectionLayer implements DataLayer {
     private Map<Long, User> users;
     private AtomicLong counter;
 
-    public CollectionLayer(){
+    public CollectionLayer() {
         users = new HashMap<Long, User>();
         counter = new AtomicLong(10);
     }
 
-    public static CollectionLayer get(){
+    public static CollectionLayer get() {
         return new CollectionLayer();
     }
 
@@ -35,7 +31,7 @@ public class CollectionLayer implements UsersDataLayer{
     public User addUser(User u) {
         Long id = counter.incrementAndGet();
         u.setId(id);
-        users.put(id,u);
+        users.put(id, u);
         return u;
     }
 
