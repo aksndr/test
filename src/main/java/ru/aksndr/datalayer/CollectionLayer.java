@@ -23,12 +23,12 @@ public class CollectionLayer implements DataLayer {
     }
 
     @Override
-    public Map<Long, User> getUsersList() {
+    public Map<Long, User> findAllUsers() {
         return users;
     }
 
     @Override
-    public User addUser(User u) {
+    public User save(User u) {
         Long id = counter.incrementAndGet();
         u.setId(id);
         users.put(id, u);
@@ -36,7 +36,7 @@ public class CollectionLayer implements DataLayer {
     }
 
     @Override
-    public User getUser(long id) {
+    public User findById(long id) {
         User user = users.get(id);
         return user;
     }

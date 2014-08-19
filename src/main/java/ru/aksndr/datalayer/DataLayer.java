@@ -8,9 +8,9 @@ import java.util.Map;
  * Created by aksndr on 11.08.14.
  */
 public interface DataLayer {
-    public Map<Long, User> getUsersList();
+    public Map<Long, User> findAllUsers();
 
-    public User addUser(User u);
+    public User save(User u);
 
-    public User getUser(long id);
+    public User findById(long id);
 }
