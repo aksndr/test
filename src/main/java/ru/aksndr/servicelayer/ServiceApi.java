@@ -4,6 +4,7 @@ import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
+import ru.aksndr.model.Flat;
 import ru.aksndr.model.User;
 
 import java.util.ArrayList;
@@ -11,9 +12,11 @@ import java.util.ArrayList;
 /**
  * Created by aksndr on 11.08.14.
  */
-public interface UserServiceApi {
+public interface ServiceApi {
     public static final String USERS_PATH = "/users";
-    public static final String ADD_USER_PATH = "/add";
+    public static final String ADD_USER_PATH = "/adduser";
+    public static final String ADD_NEW_USER_PATH = "/addnewuser";
+    public static final String ADD_FLAT_PATH = "/addflat";
     public static final String USER_PATH = "/{id}";
 
     @GET(USERS_PATH)
@@ -24,4 +27,7 @@ public interface UserServiceApi {
 
     @GET(USER_PATH)
     public User getUser(@Path("id") long id);
+
+    @POST(ADD_FLAT_PATH)
+    public Flat addFlat(@Body Flat f);
 }

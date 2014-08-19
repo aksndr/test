@@ -1,7 +1,8 @@
 import org.junit.Test;
 import retrofit.RestAdapter;
+import ru.aksndr.model.Flat;
 import ru.aksndr.model.User;
-import ru.aksndr.servicelayer.UserServiceApi;
+import ru.aksndr.servicelayer.ServiceApi;
 
 import java.util.ArrayList;
 
@@ -19,31 +20,40 @@ public class ServiceTest {
     User user = User.create()
             .withFirstname(UserTest.FIRSTNAME)
             .withLastname(UserTest.LASTNAME)
-            .withAge(UserTest.AGE).build();
+            .withFlatId(UserTest.FLATID).build();
 
-    private UserServiceApi userSvc = new RestAdapter.Builder()
+    private ServiceApi api = new RestAdapter.Builder()
             .setEndpoint(SERVER).build()
-            .create(UserServiceApi.class);
+            .create(ServiceApi.class);
 
     @Test
     public void testAddUser() throws Exception {
-        User received = userSvc.addUser(user);
+        User received = api.addUser(user);
         assertEquals(user.getFirstname(), UserTest.FIRSTNAME);
         assertEquals(user.getLastname(), UserTest.LASTNAME);
-        assertEquals(user.getAge(), UserTest.AGE);
+        assertEquals(user.getFlatid(), UserTest.FLATID);
+        assertTrue(received.getId() > 0);
+    }
+
+    @Test
+    public void addFlat() throws Exception {
+        Flat flat = new Flat();
+        flat.setFlatNum("176");
+        flat.setHouseId(9L);
+        Flat received = api.addFlat(flat);
         assertTrue(received.getId() > 0);
     }
 
     @Test
     public void getUsersList() throws Exception {
-        ArrayList<User> users = userSvc.getUsersList();
+        ArrayList<User> users = api.getUsersList();
         assertNotNull(users);
     }
 
     @Test
     public void getUserById() throws Exception {
-        User received = userSvc.addUser(user);
-        User user = userSvc.getUser(received.getId());
+        User received = api.addUser(user);
+        User user = api.getUser(received.getId());
         assertEquals(received, user);
     }
 

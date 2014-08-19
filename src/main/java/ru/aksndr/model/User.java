@@ -21,16 +21,16 @@ public class User {
 
         public UserBuilder withLastname(String lastname);
 
-        public UserBuilder withAge(int age);
+        public UserBuilder withFlatId(Long age);
     }
 
     public User() {
     }
 
-    public User(String firstname, String lastname, int age) {
+    public User(String firstname, String lastname, Long flatid) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.age = age;
+        this.flatid = flatid;
     }
 
     @Id
@@ -41,8 +41,8 @@ public class User {
     private String firstname;
     @Column(name = "lastname")
     private String lastname;
-    @Column(name = "age")
-    private int age;
+    @Column(name = "flatid")
+    private Long flatid;
 
     public long getId() {
         return id;
@@ -68,12 +68,12 @@ public class User {
         this.lastname = lastname;
     }
 
-    public int getAge() {
-        return age;
+    public Long getFlatid() {
+        return flatid;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setFlatid(Long flatid) {
+        this.flatid = flatid;
     }
 
     @Override
