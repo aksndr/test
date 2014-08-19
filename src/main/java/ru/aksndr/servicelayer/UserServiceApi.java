@@ -6,7 +6,7 @@ import retrofit.http.POST;
 import retrofit.http.Path;
 import ru.aksndr.model.User;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * Created by aksndr on 11.08.14.
@@ -17,7 +17,7 @@ public interface UserServiceApi {
     public static final String USER_PATH = "/{id}";
 
     @GET(USERS_PATH)
-    public HashMap<Long,User> getUsersList();
+    public ArrayList<User> getUsersList();
 
     @POST(ADD_USER_PATH)
     public User addUser(@Body User u);

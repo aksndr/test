@@ -24,6 +24,15 @@ public class User {
         public UserBuilder withAge(int age);
     }
 
+    public User() {
+    }
+
+    public User(String firstname, String lastname, int age) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.age = age;
+    }
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)

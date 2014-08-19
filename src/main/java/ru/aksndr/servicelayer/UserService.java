@@ -12,7 +12,6 @@ import ru.aksndr.datalayer.UsersRepository;
 import ru.aksndr.model.User;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
 
 @Controller
 //@EnableAutoConfiguration
@@ -25,10 +24,10 @@ public class UserService {
 
     @RequestMapping(value = UserServiceApi.USERS_PATH, method = RequestMethod.GET)
     @ResponseBody
-    public Map<Long, User> getUsersList(HttpServletResponse response) {
+    public Iterable<User> getUsersList(HttpServletResponse response) {
         response.setContentType(org.springframework.http.MediaType.APPLICATION_JSON_VALUE);
         response.setStatus(HttpServletResponse.SC_OK);
-        return dataLayer.findAllUsers();
+        return usersRepository.findAll();
     }
 
     @RequestMapping(value = UserServiceApi.ADD_USER_PATH, method = RequestMethod.POST)

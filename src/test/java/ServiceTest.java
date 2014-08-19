@@ -1,14 +1,13 @@
 import org.junit.Test;
 import retrofit.RestAdapter;
-import ru.aksndr.servicelayer.UserServiceApi;
 import ru.aksndr.model.User;
+import ru.aksndr.servicelayer.UserServiceApi;
 
-import java.util.HashMap;
-
-import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by aksndr on 11.08.14.
@@ -34,12 +33,11 @@ public class ServiceTest {
         assertEquals(user.getAge(), UserTest.AGE);
         assertTrue(received.getId() > 0);
     }
+
     @Test
     public void getUsersList() throws Exception {
-        User received = userSvc.addUser(user);
-        HashMap<Long,User> users = userSvc.getUsersList();
-        User user = users.get(received.getId());
-        assertNotNull(user);
+        ArrayList<User> users = userSvc.getUsersList();
+        assertNotNull(users);
     }
 
     @Test
