@@ -1,10 +1,8 @@
 package ru.aksndr.servicelayer;
 
-import retrofit.http.Body;
-import retrofit.http.GET;
-import retrofit.http.POST;
-import retrofit.http.Path;
+import retrofit.http.*;
 import ru.aksndr.model.Flat;
+import ru.aksndr.model.House;
 import ru.aksndr.model.User;
 
 import java.util.ArrayList;
@@ -30,4 +28,8 @@ public interface ServiceApi {
 
     @POST(ADD_FLAT_PATH)
     public Flat addFlat(@Body Flat f);
+
+    @Multipart
+    @POST(ADD_NEW_USER_PATH)
+    public User addNewUser(@Part("u") User u, @Part("f") Flat f, @Part("h") House h);
 }

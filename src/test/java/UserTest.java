@@ -16,7 +16,7 @@ public class UserTest {
 
     @Test
     public static User testUser() throws Exception {
-        User user = User.create().withFirstname(FIRSTNAME).withLastname(LASTNAME).withFlatId(FLATID).build();
+        User user = User.create().withFirstname(FIRSTNAME).withLastname(LASTNAME).build();
         assertEquals(user.getFirstname(), FIRSTNAME);
         assertEquals(user.getLastname(), LASTNAME);
         assertEquals(user.getFlatid(), FLATID);

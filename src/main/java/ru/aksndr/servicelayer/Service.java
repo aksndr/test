@@ -17,6 +17,7 @@ import ru.aksndr.model.House;
 import ru.aksndr.model.User;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 public class Service {
@@ -49,15 +50,18 @@ public class Service {
 
     @RequestMapping(value = ServiceApi.ADD_NEW_USER_PATH, method = RequestMethod.POST)
     @ResponseBody
-    public User addNewUser(@RequestBody User u, @RequestBody Flat f, @RequestBody House h, HttpServletResponse response) {
-        if (houseRepository.findByAddress(h.getAddress()).size() > 1) {
+    public User addNewUser(@RequestPart User u, @RequestPart Flat f, @RequestPart House h, HttpServletResponse response) {
+        List<House> houseList = houseRepository.findByAddress(h.getAddress());
+        if (houseList.size() > 1) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.setHeader("Error", "Found more than one house on these address.");
             return null;
-        } else if (houseRepository.findByAddress(h.getAddress()).size() == 0) {
+        } else if (houseList.size() == 0) {
             h = houseRepository.save(h);
+        } else if (houseList.size() == 1) {
+            h = houseList.get(0);
         }
-        f.setHouseId(h.getId());
+        f.setHouseid(h.getId());
         flatsRepository.save(f);
         u.setFlatid(f.getId());
         return usersRepository.save(u);

@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * User: a.arzamastsev Date: 19.08.14 Time: 8:19
  */
-@SuppressWarnings("JpaQlInspection")
+//@SuppressWarnings("JpaQlInspection")
 @Repository
 public interface UsersRepository extends CrudRepository<User, Long> {
     public Map<Long, User> findByFirstname(String firstname);
@@ -21,10 +21,10 @@ public interface UsersRepository extends CrudRepository<User, Long> {
 
     public List<User> findById(long id);
 
-    @Query("SELECT u FROM User u WHERE u.flatId = " +
-            "(select f.id from Flat f where f.flatNum = :flatNum " +
-            "AND f.houseId = (SELECT h.id FROM House h where LOWER(h.address) = LOWER(:address))) ")
-    public User findByFlatNumAndHouseAddr(@Param("flatNum") String flatNum, @Param("address") String address);
+    @Query("SELECT u FROM User u WHERE u.flatid = " +
+            "(select f.id from Flat f where f.flatnum = :flatnum " +
+            "AND f.houseid = (SELECT h.id FROM House h where LOWER(h.address) = LOWER(:address))) ")
+    public User findByFlatNumAndHouseAddr(@Param("flatnum") String flatnum, @Param("address") String address);
 
 //    @Query("SELECT p FROM Person p WHERE LOWER(p.lastName) = LOWER(:lastName)")
 //    public List<Person> find(@Param("lastName") String lastName);

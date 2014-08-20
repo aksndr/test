@@ -12,10 +12,10 @@ public class Flat {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "houseId", nullable = false)
-    private Long houseId;
-    @Column(name = "flatNum", nullable = false)
-    private String flatNum;
+    @Column(name = "houseid", nullable = false)
+    private Long houseid;
+    @Column(name = "flatnum", nullable = false)
+    private String flatnum;
 
     public Long getId() {
         return id;
@@ -25,19 +25,19 @@ public class Flat {
         this.id = id;
     }
 
-    public Long getHouseId() {
-        return houseId;
+    public Long getHouseid() {
+        return houseid;
     }
 
-    public void setHouseId(Long houseId) {
-        this.houseId = houseId;
+    public void setHouseid(Long houseid) {
+        this.houseid = houseid;
     }
 
-    public String getFlatNum() {
-        return flatNum;
+    public String getFlatnum() {
+        return flatnum;
     }
 
-    public void setFlatNum(String flatNum) {
-        this.flatNum = flatNum;
+    public void setFlatnum(String flatnum) {
+        this.flatnum = flatnum;
     }
 }

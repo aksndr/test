@@ -11,5 +11,5 @@ import java.util.List;
  */
 @Repository
 public interface FlatsRepository extends CrudRepository<Flat, Long> {
-    public List<Flat> findByFlatNum(String flatNum);
+    public List<Flat> findByFlatnum(String flatnum);
 }

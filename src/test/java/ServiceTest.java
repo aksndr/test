@@ -1,6 +1,8 @@
+import org.junit.Assert;
 import org.junit.Test;
 import retrofit.RestAdapter;
 import ru.aksndr.model.Flat;
+import ru.aksndr.model.House;
 import ru.aksndr.model.User;
 import ru.aksndr.servicelayer.ServiceApi;
 
@@ -20,7 +22,7 @@ public class ServiceTest {
     User user = User.create()
             .withFirstname(UserTest.FIRSTNAME)
             .withLastname(UserTest.LASTNAME)
-            .withFlatId(UserTest.FLATID).build();
+            .build();
 
     private ServiceApi api = new RestAdapter.Builder()
             .setEndpoint(SERVER).build()
@@ -38,10 +40,29 @@ public class ServiceTest {
     @Test
     public void addFlat() throws Exception {
         Flat flat = new Flat();
-        flat.setFlatNum("176");
-        flat.setHouseId(9L);
+        flat.setFlatnum("176");
+        flat.setHouseid(9L);
         Flat received = api.addFlat(flat);
         assertTrue(received.getId() > 0);
+    }
+
+
+    @Test
+    public void addNewUser() throws Exception {
+        Flat flat = new Flat();
+        flat.setFlatnum("176");
+
+        House house = new House();
+        house.setAddress("Жданова 9");
+
+        User u = User.create()
+                .withFirstname("Александр")
+                .withLastname("Арзамасцев").build();
+
+        User received = api.addNewUser(u, flat, house);
+
+        Assert.assertNotNull(received.getFlatid());
+
     }
 
     @Test

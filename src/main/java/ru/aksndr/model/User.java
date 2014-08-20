@@ -20,8 +20,6 @@ public class User {
         public UserBuilder withFirstname(String firstname);
 
         public UserBuilder withLastname(String lastname);
-
-        public UserBuilder withFlatId(Long age);
     }
 
     public User() {
