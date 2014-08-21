@@ -21,6 +21,8 @@ public interface UsersRepository extends CrudRepository<User, Long> {
 
     public List<User> findById(long id);
 
+    public User findByLogin(String login);
+
     @Query("SELECT u FROM User u WHERE u.flatid = " +
             "(select f.id from Flat f where f.flatnum = :flatnum " +
             "AND f.houseid = (SELECT h.id FROM House h where LOWER(h.address) = LOWER(:address))) ")

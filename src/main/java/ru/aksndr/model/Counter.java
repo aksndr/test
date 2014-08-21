@@ -1,9 +1,6 @@
 package ru.aksndr.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by aksndr on 19.08.14.
@@ -17,6 +14,17 @@ public class Counter {
 
     @Column(name = "descr", nullable = false)
     private String descr;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private CounterType type;
+
+    @Column(name = "value", nullable = false)
+    private String value;
+
+    @ManyToOne
+    @JoinColumn(name = "flat_id")
+    private Flat flat;
 
     public String getDescr() {
         return descr;
@@ -32,5 +40,29 @@ public class Counter {
 
     public void setSn(String sn) {
         this.sn = sn;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public CounterType getType() {
+        return type;
+    }
+
+    public void setType(CounterType type) {
+        this.type = type;
+    }
+
+    public Flat getFlat() {
+        return flat;
+    }
+
+    public void setFlat(Flat flat) {
+        this.flat = flat;
     }
 }

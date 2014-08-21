@@ -1,6 +1,7 @@
 package ru.aksndr.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by aksndr on 19.08.14.
@@ -12,10 +13,13 @@ public class Flat {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "houseid", nullable = false)
-    private Long houseid;
-    @Column(name = "flatnum", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "house_id")
+    private House house;
+    @Column(name = "flat_num", nullable = false)
     private String flatnum;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "flat")
+    private Set<Counter> counters;
 
     public Long getId() {
         return id;
@@ -25,12 +29,12 @@ public class Flat {
         this.id = id;
     }
 
-    public Long getHouseid() {
-        return houseid;
+    public House getHouse() {
+        return house;
     }
 
-    public void setHouseid(Long houseid) {
-        this.houseid = houseid;
+    public void setHouse(House house) {
+        this.house = house;
     }
 
     public String getFlatnum() {
@@ -39,5 +43,13 @@ public class Flat {
 
     public void setFlatnum(String flatnum) {
         this.flatnum = flatnum;
+    }
+
+    public Set<Counter> getCounters() {
+        return counters;
+    }
+
+    public void setCounters(Set<Counter> counters) {
+        this.counters = counters;
     }
 }

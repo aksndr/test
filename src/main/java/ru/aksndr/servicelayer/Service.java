@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ru.aksndr.datalayer.FlatsRepository;
-import ru.aksndr.datalayer.HouseRepository;
-import ru.aksndr.datalayer.UsersRepository;
+import ru.aksndr.datalayer.*;
 import ru.aksndr.model.Flat;
 import ru.aksndr.model.House;
 import ru.aksndr.model.User;
@@ -33,6 +31,14 @@ public class Service {
     @Qualifier("houseRepository")
     @Autowired
     HouseRepository houseRepository;
+
+    @Qualifier("countersRepository")
+    @Autowired
+    CountersRepository countersRepository;
+
+    @Qualifier("counterTypesRepository")
+    @Autowired
+    CounterTypesRepository counterTypesRepository;
 
     @RequestMapping(value = ServiceApi.USERS_PATH, method = RequestMethod.GET)
     @ResponseBody
@@ -82,4 +88,16 @@ public class Service {
         }
         return user;
     }
+
+    /*вернуть список счётчиков для данного пользователя.
+    Возвращает sn, тип, описание
+    берём id квартиры по логину, по id квартиры получаем список счётчиков,
+     сразу с типом (заджойнить в репозитории)
+     */
+
+
+    //вернуть показания определённого счётчика данной квартиры за указанный период снб тип, описание, значение, дата замера
+    //вернуть показания всех счётчиков данной квартиры за указанный период то же самое что и выше, только для всех счётчиков
+    //вернуть список квартир данного дома с показателями за период, с фильтром по счётчикам
+
 }

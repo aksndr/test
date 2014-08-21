@@ -17,30 +17,35 @@ public class User {
     }
 
     public interface UserBuilder extends Builder<User> {
-        public UserBuilder withFirstname(String firstname);
+        public UserBuilder withLogin(String login);
 
+        public UserBuilder withFirstname(String firstname);
         public UserBuilder withLastname(String lastname);
     }
 
     public User() {
     }
 
-    public User(String firstname, String lastname, Long flatid) {
+    public User(String login, String firstname, String lastname) {
+        this.login = login;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.flatid = flatid;
     }
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "login")
+    private String login;
     @Column(name = "firstname")
     private String firstname;
     @Column(name = "lastname")
     private String lastname;
-    @Column(name = "flatid")
-    private Long flatid;
+
+    @OneToOne
+    @JoinColumn(name = "flat_id")
+    private Flat flat;
 
     public long getId() {
         return id;
@@ -48,6 +53,14 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getFirstname() {
@@ -66,12 +79,12 @@ public class User {
         this.lastname = lastname;
     }
 
-    public Long getFlatid() {
-        return flatid;
+    public Flat getFlat() {
+        return flat;
     }
 
-    public void setFlatid(Long flatid) {
-        this.flatid = flatid;
+    public void setFlat(Flat flat) {
+        this.flat = flat;
     }
 
     @Override

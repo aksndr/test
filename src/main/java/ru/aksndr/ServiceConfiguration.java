@@ -10,9 +10,5 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:application.properties")
 public class ServiceConfiguration {
 
-//    @Bean
-//    public DataLayer getDataLayer() {
-//        return new CollectionLayer();
-//    }
 
 }

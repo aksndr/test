@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b173db3-f6b3-46a5-b2e9-686ec867bdde" name="Default" comment="maintanance commit.&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/Counter.java" />
+    <list default="true" id="7b173db3-f6b3-46a5-b2e9-686ec867bdde" name="Default" comment="Joins .&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/CounterType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CounterTypesRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CountersRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Readme.md" />
+      <change type="DELETED" beforePath="C:\workspace\test\src\main\java\ru\aksndr\datalayer\CollectionLayer.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\workspace\test\src\main\java\ru\aksndr\datalayer\DataLayer.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/Counter.java" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/Counter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/Flat.java" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/Flat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/House.java" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/House.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/aksndr/ServiceConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/ServiceConfiguration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/model/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/UsersRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/UsersRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test.iws" />
@@ -89,7 +101,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" line="35" class="ru.aksndr.servicelayer.Service" package="ru.aksndr.servicelayer">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" line="49" class="ru.aksndr.servicelayer.Service" package="ru.aksndr.servicelayer">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -104,22 +116,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" line="43" class="ru.aksndr.servicelayer.Service" package="ru.aksndr.servicelayer">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" line="71" class="ru.aksndr.servicelayer.Service" package="ru.aksndr.servicelayer">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" line="77" class="ru.aksndr.servicelayer.Service" package="ru.aksndr.servicelayer">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -146,31 +143,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ServiceApi.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/ServiceApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="48" selection-start="444" selection-end="461" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="697">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Service.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="39" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0" vertical-offset="773" max-vertical-offset="1326">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Counter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Counter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/Counter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="3" selection-start="195" selection-end="195" vertical-scroll-proportion="0.27031803" vertical-offset="0" max-vertical-offset="578">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="24" column="4" selection-start="474" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="918">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="5" selection-start="674" selection-end="674" vertical-scroll-proportion="-0.45053002" vertical-offset="612" max-vertical-offset="1394">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -178,7 +164,7 @@
       <file leaf-file-name="UsersRepository.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/UsersRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="4" selection-start="605" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="629">
+            <state line="23" column="27" selection-start="661" selection-end="672" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
               <folding />
             </state>
           </provider>
@@ -187,16 +173,7 @@
       <file leaf-file-name="FlatsRepository.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/FlatsRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="35" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="357">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HouseRepository.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/HouseRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="4" selection-start="323" selection-end="372" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="357">
+            <state line="11" column="0" selection-start="235" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
               <folding />
             </state>
           </provider>
@@ -205,8 +182,30 @@
       <file leaf-file-name="ServiceConfiguration.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/ServiceConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="7" selection-start="312" selection-end="405" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="408">
+            <state line="12" column="0" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CountersRepository.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CountersRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="214" selection-end="303" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CounterTypesRepository.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CounterTypesRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="39" selection-start="247" selection-end="269" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -214,8 +213,10 @@
       <file leaf-file-name="Flat.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/Flat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="27" selection-start="348" selection-end="355" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="833">
-              <folding />
+            <state line="10" column="13" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -223,7 +224,18 @@
       <file leaf-file-name="House.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/House.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="697">
+            <state line="19" column="4" selection-start="342" selection-end="428" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="680">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CounterType.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/CounterType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="28" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
               <folding />
             </state>
           </provider>
@@ -254,22 +266,26 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/app/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/House.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/Flat.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/User.java" />
         <option value="$PROJECT_DIR$/src/test/java/UserTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/UserServiceApi.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/ServiceConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/UsersRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/UserService.java" />
         <option value="$PROJECT_DIR$/src/test/java/ServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/ServiceApi.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/HouseRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/FlatsRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/counter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/DataLayer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/ServiceConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CountersRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CounterTypesRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/UsersRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/Counter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/CounterType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/Flat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/House.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/aksndr/model/User.java" />
       </list>
     </option>
   </component>
@@ -1006,7 +1022,7 @@
       <workItem from="1408469546117" duration="6215000" />
       <workItem from="1408475798718" duration="419000" />
       <workItem from="1408638847811" duration="13000" />
-      <workItem from="1408638902953" duration="635000" />
+      <workItem from="1408638902953" duration="7516000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;">
       <created>1407781971514</created>
@@ -1024,11 +1040,15 @@
       <created>1408639524274</created>
       <updated>1408639524274</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="maintanance commit.&#10;">
+      <created>1408639561318</created>
+      <updated>1408639561318</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27635000" />
+    <option name="totallyTimeSpent" value="34516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -1036,34 +1056,34 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967373" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19864048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967373" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19864048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1098,20 +1118,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="54" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.0" vertical-offset="543" max-vertical-offset="986">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CollectionLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="10" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="901">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.0.6.RELEASE/spring-web-4.0.6.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="214" column="0" selection-start="8302" selection-end="8302" vertical-scroll-proportion="0.0" vertical-offset="3638" max-vertical-offset="4777" />
@@ -1120,9 +1126,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="24" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="493">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1149,7 +1153,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="36" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="527">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1186,7 +1190,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="0" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="527">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1278,13 +1282,6 @@
         <state line="34" column="53" selection-start="2588" selection-end="2588" vertical-scroll-proportion="-3.8" vertical-offset="466" max-vertical-offset="833" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CollectionLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.0.6.RELEASE/spring-web-4.0.6.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="214" column="0" selection-start="8302" selection-end="8302" vertical-scroll-proportion="0.0" vertical-offset="2982" max-vertical-offset="4216" />
@@ -1319,32 +1316,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="37" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/UserTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="99" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/ServiceConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="312" selection-end="405" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -1365,20 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/UsersRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="4" selection-start="605" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/House.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/7.0.54/tomcat-embed-core-7.0.54.jar!/javax/servlet/http/HttpServletResponse.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="9" selection-start="2564" selection-end="2564" vertical-scroll-proportion="0.0029325513" vertical-offset="1444" max-vertical-offset="1785" />
@@ -1391,33 +1351,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/Flat.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/ServiceConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="348" selection-end="355" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="833">
+        <state line="12" column="0" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="627" selection-end="627" vertical-scroll-proportion="0.39045936" vertical-offset="0" max-vertical-offset="566">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/FlatsRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="35" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+        <state line="11" column="0" selection-start="235" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CountersRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="214" selection-end="303" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/CounterTypesRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="39" selection-start="247" selection-end="269" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/datalayer/UsersRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="27" selection-start="661" selection-end="672" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/servicelayer/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="39" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0" vertical-offset="773" max-vertical-offset="1326">
+        <state line="96" column="0" selection-start="3188" selection-end="3188" vertical-scroll-proportion="0.0" vertical-offset="1032" max-vertical-offset="1683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/House.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="4" selection-start="342" selection-end="428" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="680">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/CounterType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="28" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/Counter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="3" selection-start="195" selection-end="195" vertical-scroll-proportion="0.27031803" vertical-offset="0" max-vertical-offset="578">
+        <state line="24" column="4" selection-start="474" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/Flat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/aksndr/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="5" selection-start="674" selection-end="674" vertical-scroll-proportion="-0.45053002" vertical-offset="612" max-vertical-offset="1394">
+          <folding />
         </state>
       </provider>
     </entry>
