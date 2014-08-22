@@ -10,9 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.aksndr.datalayer.*;
-import ru.aksndr.model.Flat;
-import ru.aksndr.model.House;
-import ru.aksndr.model.User;
+import ru.aksndr.model.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -54,29 +52,82 @@ public class Service {
         return usersRepository.save(u);
     }
 
+    @RequestMapping(value = ServiceApi.ADD_HOUSE_PATH, method = RequestMethod.POST)
+    @ResponseBody
+    public House addHouse(@RequestBody House h, HttpServletResponse response) {
+        House house = findHouseByAddress(h.getAddress(), response);
+        if (house != null) return house;
+        return houseRepository.save(h);
+    }
+
+    public House findHouseByAddress(String address, HttpServletResponse response) {
+        List<House> houseList = houseRepository.findByAddress(address);
+        if (houseList.size() == 0) {
+            return houseRepository.save(new House(address));
+        } else if (houseList.size() == 1) {
+            return houseList.get(0);
+        }
+//        response.setHeader("Error", "Found more than one house on these address.");
+        return null;
+    }
+
     @RequestMapping(value = ServiceApi.ADD_NEW_USER_PATH, method = RequestMethod.POST)
     @ResponseBody
     public User addNewUser(@RequestPart User u, @RequestPart Flat f, @RequestPart House h, HttpServletResponse response) {
-        List<House> houseList = houseRepository.findByAddress(h.getAddress());
-        if (houseList.size() > 1) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            response.setHeader("Error", "Found more than one house on these address.");
-            return null;
-        } else if (houseList.size() == 0) {
-            h = houseRepository.save(h);
-        } else if (houseList.size() == 1) {
-            h = houseList.get(0);
-        }
-        f.setHouseid(h.getId());
+        House house = findHouseByAddress(h.getAddress(), response);
+        f.setHouse(house);
         flatsRepository.save(f);
-        u.setFlatid(f.getId());
+        u.setFlat(f);
         return usersRepository.save(u);
     }
 
     @RequestMapping(value = ServiceApi.ADD_FLAT_PATH, method = RequestMethod.POST)
     @ResponseBody
-    public Flat addFlat(@RequestBody Flat f) {
-        return flatsRepository.save(f);
+    public Flat addFlat(@RequestBody Flat f, HttpServletResponse response) {
+        House h = findHouseByAddress(f.getHouse().getAddress(), response);
+        List<Flat> flatList = flatsRepository.findByFlatNumAndAddress(f.getFlatnum(), h.getAddress());
+        if (flatList.size() == 0) {
+            f.setHouse(h);
+            return flatsRepository.save(f);
+        } else if (flatList.size() == 1) {
+            return flatList.get(0);
+        }
+        return null;
+    }
+
+    @RequestMapping(value = ServiceApi.GET_FLATS_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public List<Flat> getHouseFlatsList(@PathVariable("houseId") Long houseId, HttpServletResponse response) {
+        House h = houseRepository.findOne(houseId);
+        return flatsRepository.findByHouseId(h.getId());
+    }
+
+    @RequestMapping(value = ServiceApi.ADD_COUNTERTYPE_PATH, method = RequestMethod.POST)
+    @ResponseBody
+    public CounterType addCounterType(@RequestBody CounterType ct) {
+        if (ct.getId() == null) {
+            CounterType counterType = counterTypesRepository.findByTypeName(ct.getTypeName());
+            if (counterType != null) return counterType;
+        }
+        return counterTypesRepository.save(ct);
+    }
+
+    @RequestMapping(value = ServiceApi.ADD_COUNTER_PATH, method = RequestMethod.POST)
+    @ResponseBody
+    public Counter addCounter(@PathVariable("flatId") long flatId, @RequestBody Counter c, HttpServletResponse response) {
+        Flat f = flatsRepository.findOne(flatId);
+        if (f == null) {
+            response.setHeader("Error", "Not found flat with this id: " + flatId);
+            return null;
+        }
+        c.setFlat(f);
+        return countersRepository.save(c);
+    }
+
+    @RequestMapping(value = ServiceApi.GET_COUNTER_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public Counter getCounter(@PathVariable("sn") long sn) {
+        return countersRepository.getCounterBySn(sn);
     }
 
     @RequestMapping(value = ServiceApi.USER_PATH, method = RequestMethod.GET)
@@ -94,6 +145,21 @@ public class Service {
     берём id квартиры по логину, по id квартиры получаем список счётчиков,
      сразу с типом (заджойнить в репозитории)
      */
+    @RequestMapping(value = ServiceApi.USERS_COUNTERS_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public Iterable<Counter> getUserCountersList(String login, HttpServletResponse response) {
+        User user = usersRepository.findByLogin(login);
+        if (user == null) {
+            response.setHeader("Error", "Not found user with this login: " + login);
+            return null;
+        }
+        Flat flat = user.getFlat();
+        if (flat == null) {
+            response.setHeader("Error", "Not found flat for this user: " + login);
+            return null;
+        }
+        return countersRepository.getCountersByFlatId(flat.getId());
+    }
 
 
     //вернуть показания определённого счётчика данной квартиры за указанный период снб тип, описание, значение, дата замера

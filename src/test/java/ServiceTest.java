@@ -4,6 +4,7 @@ import retrofit.RestAdapter;
 import ru.aksndr.model.Flat;
 import ru.aksndr.model.House;
 import ru.aksndr.model.User;
+import ru.aksndr.model.UserTest;
 import ru.aksndr.servicelayer.ServiceApi;
 
 import java.util.ArrayList;
@@ -33,7 +34,6 @@ public class ServiceTest {
         User received = api.addUser(user);
         assertEquals(user.getFirstname(), UserTest.FIRSTNAME);
         assertEquals(user.getLastname(), UserTest.LASTNAME);
-        assertEquals(user.getFlatid(), UserTest.FLATID);
         assertTrue(received.getId() > 0);
     }
 
@@ -41,7 +41,6 @@ public class ServiceTest {
     public void addFlat() throws Exception {
         Flat flat = new Flat();
         flat.setFlatnum("176");
-        flat.setHouseid(9L);
         Flat received = api.addFlat(flat);
         assertTrue(received.getId() > 0);
     }
@@ -56,12 +55,12 @@ public class ServiceTest {
         house.setAddress("Жданова 9");
 
         User u = User.create()
-                .withFirstname("Александр")
-                .withLastname("Арзамасцев").build();
+                .withFirstname("Наталья")
+                .withLastname("Арзамасцева").build();
 
         User received = api.addNewUser(u, flat, house);
 
-        Assert.assertNotNull(received.getFlatid());
+        Assert.assertNotNull(received.getFlat());
 
     }
 

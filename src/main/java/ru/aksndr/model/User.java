@@ -20,6 +20,7 @@ public class User {
         public UserBuilder withLogin(String login);
 
         public UserBuilder withFirstname(String firstname);
+
         public UserBuilder withLastname(String lastname);
     }
 
@@ -36,7 +37,7 @@ public class User {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "login")
+    @Column(name = "login", nullable = false)
     private String login;
     @Column(name = "firstname")
     private String firstname;

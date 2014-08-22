@@ -1,7 +1,6 @@
 package ru.aksndr.model;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by aksndr on 19.08.14.
@@ -17,8 +16,17 @@ public class House {
     @Column(name = "address")
     private String address;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "house")
-    private Set<Flat> flats;
+    public House() {
+        super();
+    }
+
+    public House(String address) {
+        super();
+        this.address = address;
+    }
+
+//    @OneToMany(mappedBy = "house")
+//    private Set<Flat> flats;
 
     public String getAddress() {
         return address;
@@ -36,11 +44,11 @@ public class House {
         this.id = id;
     }
 
-    public Set<Flat> getFlats() {
-        return flats;
-    }
-
-    public void setFlats(Set<Flat> flats) {
-        this.flats = flats;
-    }
+//    public Set<Flat> getFlats() {
+//        return flats;
+//    }
+//
+//    public void setFlats(Set<Flat> flats) {
+//        this.flats = flats;
+//    }
 }

@@ -10,20 +10,17 @@ import javax.persistence.*;
 public class Counter {
     @Id
     @Column(name = "sn", nullable = false, unique = true)
-    private String sn;
+    private Long sn;
 
     @Column(name = "descr", nullable = false)
     private String descr;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "type_id")
     private CounterType type;
 
-    @Column(name = "value", nullable = false)
-    private String value;
-
     @ManyToOne
-    @JoinColumn(name = "flat_id")
+    @JoinColumn(name = "flatId")
     private Flat flat;
 
     public String getDescr() {
@@ -34,20 +31,12 @@ public class Counter {
         this.descr = descr;
     }
 
-    public String getSn() {
+    public Long getSn() {
         return sn;
     }
 
-    public void setSn(String sn) {
+    public void setSn(Long sn) {
         this.sn = sn;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
     }
 
     public CounterType getType() {

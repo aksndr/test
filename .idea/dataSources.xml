@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="1721692038">
-    <data-source source="LOCAL" name="hibernate.cfg.xml" uuid="6716118c-3fe2-4b21-919f-79ac29c1aa51">
-      <driver-ref>hsqldb.remote</driver-ref>
+    <data-source source="LOCAL" name="hibernate.cfg.xml" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="6716118c-3fe2-4b21-919f-79ac29c1aa51">
       <jdbc-driver>org.hsqldb.jdbcDriver</jdbc-driver>
       <jdbc-url>jdbc:hsqldb:mem:petclinic</jdbc-url>
       <libraries />
