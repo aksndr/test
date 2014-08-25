@@ -55,12 +55,18 @@ public class Service {
     @RequestMapping(value = ServiceApi.ADD_HOUSE_PATH, method = RequestMethod.POST)
     @ResponseBody
     public House addHouse(@RequestBody House h, HttpServletResponse response) {
-        House house = findHouseByAddress(h.getAddress(), response);
+        House house = findHouseByAddress(h.getAddress());
         if (house != null) return house;
         return houseRepository.save(h);
     }
 
-    public House findHouseByAddress(String address, HttpServletResponse response) {
+    @RequestMapping(value = ServiceApi.GET_HOUSE_PATH, method = RequestMethod.POST)
+    @ResponseBody
+    public List<House> getHouseByAddress(@RequestParam("address") String address) {
+        return houseRepository.findByAddress(address);
+    }
+
+    public House findHouseByAddress(String address) {
         List<House> houseList = houseRepository.findByAddress(address);
         if (houseList.size() == 0) {
             return houseRepository.save(new House(address));
@@ -74,24 +80,29 @@ public class Service {
     @RequestMapping(value = ServiceApi.ADD_NEW_USER_PATH, method = RequestMethod.POST)
     @ResponseBody
     public User addNewUser(@RequestPart User u, @RequestPart Flat f, @RequestPart House h, HttpServletResponse response) {
-        House house = findHouseByAddress(h.getAddress(), response);
+        House house = findHouseByAddress(h.getAddress());
         f.setHouse(house);
         flatsRepository.save(f);
         u.setFlat(f);
         return usersRepository.save(u);
     }
 
-    @RequestMapping(value = ServiceApi.ADD_FLAT_PATH, method = RequestMethod.POST)
+    @RequestMapping(value = ServiceApi.ADD_FLAT_TO_HOUSE_PATH, method = RequestMethod.POST)
     @ResponseBody
-    public Flat addFlat(@RequestBody Flat f, HttpServletResponse response) {
-        House h = findHouseByAddress(f.getHouse().getAddress(), response);
-        List<Flat> flatList = flatsRepository.findByFlatNumAndAddress(f.getFlatnum(), h.getAddress());
+    public Flat addFlat(@RequestParam("houseId") Long houseId, @RequestParam String flatnum, HttpServletResponse response) {
+        House h = houseRepository.findOne(houseId);
+        List<Flat> flatList = flatsRepository.findByFlatNumAndAddress(flatnum, h.getAddress());
         if (flatList.size() == 0) {
+            Flat f = new Flat();
             f.setHouse(h);
+            f.setFlatnum(flatnum);
             return flatsRepository.save(f);
         } else if (flatList.size() == 1) {
             return flatList.get(0);
         }
+        response.setHeader("Error", "Found " + flatList.size() + " for the flat number: " + flatnum + " at address: " +
+                h.getAddress());
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         return null;
     }
 

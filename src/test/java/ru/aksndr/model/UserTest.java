@@ -6,8 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by aksndr on 11.08.14.
@@ -40,13 +39,16 @@ public class UserTest extends BaseTest {
             assertEquals(u.getLogin(), r[0]);
             assertEquals(u.getFirstname(), r[1]);
             assertEquals(u.getLastname(), r[2]);
-            assertEquals(u.getFlat().getFlatnum(), r[3]);
             assertEquals(u.getFlat().getHouse().getAddress(), r[4]);
             assertTrue(u.getId() == 0);
 
         }
+    }
 
-
+    @Test
+    public void getUserTest() {
+        User u = api.getUser(2L);
+        assertNotNull(u);
     }
 }
 

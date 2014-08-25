@@ -38,15 +38,6 @@ public class ServiceTest {
     }
 
     @Test
-    public void addFlat() throws Exception {
-        Flat flat = new Flat();
-        flat.setFlatnum("176");
-        Flat received = api.addFlat(flat);
-        assertTrue(received.getId() > 0);
-    }
-
-
-    @Test
     public void addNewUser() throws Exception {
         Flat flat = new Flat();
         flat.setFlatnum("176");

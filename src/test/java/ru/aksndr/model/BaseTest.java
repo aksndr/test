@@ -5,6 +5,7 @@ import retrofit.RestAdapter;
 import ru.aksndr.servicelayer.ServiceApi;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.Assert.assertNotNull;
 
@@ -18,44 +19,39 @@ public class BaseTest {
             .setEndpoint(SERVER).build()
             .create(ServiceApi.class);
 
-    public static Flat getFlatTest(String flatNum, String houseAddress) {
-        House h = getHouseTest(houseAddress);
-        assertNotNull(h);
-        Flat f = new Flat();
-        f.setFlatnum(flatNum);
-        f.setHouse(h);
-        return api.addFlat(f);
-    }
-
     @Test
-    public void getFlat() {
-        Flat f = getFlatTest("1", "Жданова 7");
+    public void addFlat() {
+        Flat f = addFlatTest("16", "Жданова 7");
         assertNotNull(f);
     }
 
     @Test
     public void getHouse() {
-        House h = getHouseTest("Жданова 7");
+        List<House> h = getHouseTest("Жданова");
         assertNotNull(h);
     }
 
     @Test
     public void getFlatsListOfHouse() {
-        House h = getHouseTest("Жданова 7");
+        House h = getHouseTest("Жданова 7").get(0);
         ArrayList<Flat> flatList = api.getHouseFlatsList(h.getId());
         assertNotNull(flatList);
     }
 
+    public static Flat addFlatTest(String flatNum, String houseAddress) {
+        List<House> houses = getHouseTest(houseAddress);
+        House h = houses.get(0);
+        assertNotNull(h);
+        return api.addFlat(h.getId(), flatNum);
+    }
 
-    public static House getHouseTest(String houseAddress) {
-        House h = new House();
-        h.setAddress(houseAddress);
-        return api.addHouse(h);
+    public static List<House> getHouseTest(String houseAddress) {
+        return api.getHouseByAddress(houseAddress);
     }
 
     public static User createUser(String login, String firstname, String lastname, String flatnum, String address) throws Exception {
         User user = User.create().withLogin(login).withFirstname(firstname).withLastname(lastname).build();
-        user.setFlat(getFlatTest(flatnum, address));
+        user.setFlat(addFlatTest(flatnum, address));
         api.addUser(user);
         return user;
     }
