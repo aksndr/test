@@ -17,11 +17,13 @@ public interface FlatsRepository extends CrudRepository<Flat, Long> {
 //    @Query("SELECT DISTINCT flat FROM Flat flat WHERE flat.flatNum = :flatNum ORDER BY flat.flatNum")
 //    public List<Flat> findByFlatNum(@Param("flatNum") String flatNum);
 
-    @Query("SELECT DISTINCT flat FROM Flat flat WHERE flat.flatNum = :flatNum " +
+    @Query("SELECT DISTINCT flat FROM Flat flat WHERE flat.flatnum = :flatnum " +
             "and EXISTS (SELECT house FROM House house where house.address = :address)")
-    public List<Flat> findByFlatNumAndAddress(@Param("flatNum") String flatNum, @Param("address") String address);
+    public List<Flat> findByFlatNumAndAddress(@Param("flatnum") String flatnum, @Param("address") String address);
 
-    public List<Flat> findByHouseId(Long houseId);
+    @Query("SELECT DISTINCT flat FROM Flat flat WHERE flat.house = " +
+            "(SELECT house FROM House house WHERE house.id = :houseid)")
+    public List<Flat> findByHouseid(@Param("houseid") Long houseid);
 
 
 }

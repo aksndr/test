@@ -20,10 +20,7 @@ public class ServiceTest {
 
     private static final String SERVER = "http://localhost:8080";
 
-    User user = User.create()
-            .withFirstname(UserTest.FIRSTNAME)
-            .withLastname(UserTest.LASTNAME)
-            .build();
+    User user = new User(UserTest.FIRSTNAME, UserTest.FIRSTNAME, UserTest.LASTNAME);
 
     private ServiceApi api = new RestAdapter.Builder()
             .setEndpoint(SERVER).build()
@@ -45,9 +42,7 @@ public class ServiceTest {
         House house = new House();
         house.setAddress("Жданова 9");
 
-        User u = User.create()
-                .withFirstname("Наталья")
-                .withLastname("Арзамасцева").build();
+        User u = new User("Наталья", "Наталья", "Арзамасцева");
 
         User received = api.addNewUser(u, flat, house);
 

@@ -1,6 +1,6 @@
 package ru.aksndr.model;
 
-import org.junit.Test;
+import org.junit.Before;
 import retrofit.RestAdapter;
 import ru.aksndr.servicelayer.ServiceApi;
 
@@ -14,29 +14,20 @@ import static junit.framework.Assert.assertNotNull;
  */
 public class BaseTest {
     private static final String SERVER = "http://localhost:8080";
+    public List<String> testData;
+
+    @Before
+    public void initTestData() {
+        testData = new ArrayList<>();
+        testData.add("i.ivanov,Ivan,Ivanov,1,Жданова 9");
+        testData.add("a.ivanova,Anna,Ivanova,1,Жданова 9");
+        testData.add("a.arzamastsev,Александр,Арзамасцев,176,Жданова 9");
+        testData.add("p.petrov,Пётр,Петров,25,Жданова 9");
+    }
 
     public static ServiceApi api = new RestAdapter.Builder()
             .setEndpoint(SERVER).build()
             .create(ServiceApi.class);
-
-    @Test
-    public void addFlat() {
-        Flat f = addFlatTest("16", "Жданова 7");
-        assertNotNull(f);
-    }
-
-    @Test
-    public void getHouse() {
-        List<House> h = getHouseTest("Жданова");
-        assertNotNull(h);
-    }
-
-    @Test
-    public void getFlatsListOfHouse() {
-        House h = getHouseTest("Жданова 7").get(0);
-        ArrayList<Flat> flatList = api.getHouseFlatsList(h.getId());
-        assertNotNull(flatList);
-    }
 
     public static Flat addFlatTest(String flatNum, String houseAddress) {
         List<House> houses = getHouseTest(houseAddress);
@@ -50,9 +41,10 @@ public class BaseTest {
     }
 
     public static User createUser(String login, String firstname, String lastname, String flatnum, String address) throws Exception {
-        User user = User.create().withLogin(login).withFirstname(firstname).withLastname(lastname).build();
-        user.setFlat(addFlatTest(flatnum, address));
-        api.addUser(user);
+        User user = new User(login, firstname, lastname);
+        Flat f = addFlatTest(flatnum, address);
+        user.setFlat(f);
+        user = api.addUser(user);
         return user;
     }
 }

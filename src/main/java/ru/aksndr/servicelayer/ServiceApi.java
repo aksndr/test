@@ -16,11 +16,15 @@ public interface ServiceApi {
     public static final String ADD_USER_PATH = "/adduser";
     public static final String ADD_HOUSE_PATH = "/addhouse";
     public static final String GET_HOUSE_PATH = "/houses";
+    public static final String GET_ADDRESSES = "/addresses";
     public static final String ADD_NEW_USER_PATH = "/addnewuser";
     public static final String ADD_FLAT_PATH = "/addflat";
     public static final String GET_FLATS_PATH = "/houses/{houseId}/flats";
+    public static final String GET_FLAT_PATH = "/flats";
     public static final String ADD_FLAT_TO_HOUSE_PATH = "/houses/addflat}";
-    public static final String ADD_COUNTERTYPE_PATH = "/add_counter_type";
+    public static final String GET_COUNTERS_PATH = "/{flatId}/counters";
+    public static final String GET_COUNTERTYPES_PATH = "/countertypes";
+    public static final String ADD_COUNTERTYPE_PATH = "/add_countertype";
     public static final String ADD_COUNTER_PATH = "/{flatId}/addcounter";
     public static final String GET_COUNTER_PATH = "/counters/{sn}";
     public static final String USER_PATH = "/{id}";
@@ -40,8 +44,9 @@ public interface ServiceApi {
     @GET(GET_COUNTER_PATH)
     public Counter getCounter(@Path("sn") Long sn);
 
-    @GET(USERS_COUNTERS_PATH)
-    public Set<Counter> getUserCountersList(String login);
+    @FormUrlEncoded
+    @POST(USERS_COUNTERS_PATH)
+    public Set<Counter> getUserCountersList(@Field("login") String login);
 
     @FormUrlEncoded
     @POST(ADD_FLAT_TO_HOUSE_PATH)
@@ -63,4 +68,24 @@ public interface ServiceApi {
     @FormUrlEncoded
     @POST(GET_HOUSE_PATH)
     public List<House> getHouseByAddress(@Field("address") String address);
+
+    @FormUrlEncoded
+    @POST(GET_ADDRESSES)
+    public List<String> getHousesAddresses(@Field("address") String address);
+
+    @FormUrlEncoded
+    @POST(GET_FLAT_PATH)
+    public Long findFlatIdByLogin(@Field("login") String login);
+
+
+    @GET(GET_COUNTERTYPES_PATH)
+    public Set<String> getAllCounterTypes();
+
+    @FormUrlEncoded
+    @POST(GET_COUNTERS_PATH)
+    Counter getUserCounterByType(@Path("flatId") Long flatid, @Field("type") String type);
+
+    @FormUrlEncoded
+    @POST(GET_COUNTERTYPES_PATH)
+    CounterType getCounterTypeByTypeName(@Field("typename") String typename);
 }

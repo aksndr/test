@@ -1,0 +1,57 @@
+CREATE TABLE `counters` (
+  `sn`     INT(10) UNSIGNED NOT NULL,
+  `descr`  VARCHAR(100)     NOT NULL,
+  `typeid` INT(11) DEFAULT NULL,
+  `flatid` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`sn`)
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =utf8;
+
+CREATE TABLE `countertypes` (
+  `id`       INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `typename` VARCHAR(45)      NOT NULL,
+  PRIMARY KEY (`id`)
+)
+  ENGINE =InnoDB
+  AUTO_INCREMENT =1
+  DEFAULT CHARSET =utf8;
+
+CREATE TABLE `flats` (
+  `id`      INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `houseid` INT(10) UNSIGNED DEFAULT NULL,
+  `flatnum` VARCHAR(45)      NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `Index_2` (`flatnum`) USING BTREE
+)
+  ENGINE =InnoDB
+  AUTO_INCREMENT =1
+  DEFAULT CHARSET =utf8;
+
+CREATE TABLE `houses` (
+  `id`      INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `address` VARCHAR(1024)    NOT NULL,
+  PRIMARY KEY (`id`)
+)
+  ENGINE =InnoDB
+  AUTO_INCREMENT =1
+  DEFAULT CHARSET =utf8;
+
+DELIMITER $$
+
+CREATE TABLE `users` (
+  `id`        INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `login`     VARCHAR(45)      NOT NULL,
+  `firstname` VARCHAR(45) DEFAULT NULL,
+  `lastname`  VARCHAR(45) DEFAULT NULL,
+  `flatid`    VARCHAR(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login_UNIQUE` (`login`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `Index_2` (`login`)
+)
+  ENGINE =InnoDB
+  AUTO_INCREMENT =12
+  DEFAULT CHARSET =utf8$$
+
+

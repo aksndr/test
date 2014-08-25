@@ -6,12 +6,17 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ru.aksndr.model.CounterType;
 
+import java.util.Set;
+
 /**
  * Created by aksndr on 21.08.14.
  */
 @Repository
 public interface CounterTypesRepository extends CrudRepository<CounterType, Long> {
 
-    @Query("SELECT DISTINCT counterType FROM CounterType counterType WHERE counterType.typeName = :typeName")
-    public CounterType findByTypeName(@Param("typeName") String typeName);
+    @Query("SELECT DISTINCT counterType FROM CounterType counterType WHERE counterType.typename = :typename")
+    public CounterType findByTypeName(@Param("typename") String typename);
+
+    @Query("SELECT DISTINCT counterType.typename FROM CounterType counterType")
+    Set<String> getAllCounterTypes();
 }

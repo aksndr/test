@@ -13,10 +13,10 @@ public class Flat {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "house_id")
+    @JoinColumn(name = "houseid")
     private House house;
-    @Column(name = "flat_num", nullable = false)
-    private String flatNum;
+    @Column(name = "flatnum", nullable = false)
+    private String flatnum;
 //    @OneToMany(mappedBy = "flat")
 //    private Set<Counter> counters;
 
@@ -37,11 +37,11 @@ public class Flat {
     }
 
     public String getFlatnum() {
-        return flatNum;
+        return flatnum;
     }
 
     public void setFlatnum(String flatNum) {
-        this.flatNum = flatNum;
+        this.flatnum = flatNum;
     }
 
 //    public Set<Counter> getCounters() {

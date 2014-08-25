@@ -1,8 +1,5 @@
 package ru.aksndr.model;
 
-import com.fluentinterface.ReflectionBuilder;
-import com.fluentinterface.builder.Builder;
-
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -12,17 +9,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 public class User {
-    public static UserBuilder create() {
-        return ReflectionBuilder.implementationFor(UserBuilder.class).create();
-    }
-
-    public interface UserBuilder extends Builder<User> {
-        public UserBuilder withLogin(String login);
-
-        public UserBuilder withFirstname(String firstname);
-
-        public UserBuilder withLastname(String lastname);
-    }
 
     public User() {
     }
@@ -45,7 +31,7 @@ public class User {
     private String lastname;
 
     @OneToOne
-    @JoinColumn(name = "flat_id")
+    @JoinColumn(name = "flatid")
     private Flat flat;
 
     public long getId() {

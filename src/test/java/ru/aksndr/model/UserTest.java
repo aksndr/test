@@ -1,10 +1,6 @@
 package ru.aksndr.model;
 
-import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -18,15 +14,10 @@ public class UserTest extends BaseTest {
     public final static String ADDR = "Жданова 9";
     public final static Long FLATID = 32L;
 
-    public List<String> testData;
-
-    @Before
-    public void initTestData() {
-        testData = new ArrayList<>();
-        testData.add("i.ivanov,Ivan,Ivanov,1,Жданова 9");
-        testData.add("a.ivanova,Anna,Ivanova,1,Жданова 9");
-        testData.add("a.arzamastsev,Александр,Арзамасцев,176,Жданова 9");
-        testData.add("p.petrov,Пётр,Петров,25,Жданова 9");
+    @Test
+    public void findFlatIdByLogin() {
+        Long flatid = api.findFlatIdByLogin("a.arzamastsev");
+        assertNotNull(flatid);
     }
 
     @Test
@@ -40,7 +31,7 @@ public class UserTest extends BaseTest {
             assertEquals(u.getFirstname(), r[1]);
             assertEquals(u.getLastname(), r[2]);
             assertEquals(u.getFlat().getHouse().getAddress(), r[4]);
-            assertTrue(u.getId() == 0);
+            assertTrue(u.getId() != 0);
 
         }
     }
@@ -50,5 +41,7 @@ public class UserTest extends BaseTest {
         User u = api.getUser(2L);
         assertNotNull(u);
     }
+
+
 }
 

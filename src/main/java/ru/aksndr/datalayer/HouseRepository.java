@@ -13,6 +13,8 @@ import java.util.List;
  */
 @Repository
 public interface HouseRepository extends CrudRepository<House, Long> {
-    @Query("SELECT DISTINCT house FROM House house WHERE house.address LIKE :address%")
-    public List<House> findByAddress(@Param("address") String address);
+    @Query("SELECT DISTINCT house.address FROM House house WHERE house.address LIKE :address%")
+    public List<String> findLikeAddress(@Param("address") String address);
+
+    public List<House> findByAddress(String address);
 }

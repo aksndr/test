@@ -14,6 +14,7 @@ import ru.aksndr.model.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class Service {
@@ -66,6 +67,12 @@ public class Service {
         return houseRepository.findByAddress(address);
     }
 
+    @RequestMapping(value = ServiceApi.GET_ADDRESSES, method = RequestMethod.POST)
+    @ResponseBody
+    public List<String> getHousesAddresses(@RequestParam("address") String address) {
+        return houseRepository.findLikeAddress(address);
+    }
+
     public House findHouseByAddress(String address) {
         List<House> houseList = houseRepository.findByAddress(address);
         if (houseList.size() == 0) {
@@ -106,21 +113,33 @@ public class Service {
         return null;
     }
 
+    @RequestMapping(value = ServiceApi.GET_FLAT_PATH, method = RequestMethod.POST)
+    @ResponseBody
+    public Long findFlatIdByLogin(@RequestParam("login") String login) {
+        return usersRepository.findFlatidByLogin(login);
+    }
+
     @RequestMapping(value = ServiceApi.GET_FLATS_PATH, method = RequestMethod.GET)
     @ResponseBody
     public List<Flat> getHouseFlatsList(@PathVariable("houseId") Long houseId, HttpServletResponse response) {
         House h = houseRepository.findOne(houseId);
-        return flatsRepository.findByHouseId(h.getId());
+        return flatsRepository.findByHouseid(h.getId());
     }
 
     @RequestMapping(value = ServiceApi.ADD_COUNTERTYPE_PATH, method = RequestMethod.POST)
     @ResponseBody
     public CounterType addCounterType(@RequestBody CounterType ct) {
         if (ct.getId() == null) {
-            CounterType counterType = counterTypesRepository.findByTypeName(ct.getTypeName());
+            CounterType counterType = counterTypesRepository.findByTypeName(ct.getTypename());
             if (counterType != null) return counterType;
         }
         return counterTypesRepository.save(ct);
+    }
+
+    @RequestMapping(value = ServiceApi.GET_COUNTERTYPES_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public Set<String> getAllCounterTypes() {
+        return counterTypesRepository.getAllCounterTypes();
     }
 
     @RequestMapping(value = ServiceApi.ADD_COUNTER_PATH, method = RequestMethod.POST)
@@ -156,9 +175,9 @@ public class Service {
     берём id квартиры по логину, по id квартиры получаем список счётчиков,
      сразу с типом (заджойнить в репозитории)
      */
-    @RequestMapping(value = ServiceApi.USERS_COUNTERS_PATH, method = RequestMethod.GET)
+    @RequestMapping(value = ServiceApi.USERS_COUNTERS_PATH, method = RequestMethod.POST)
     @ResponseBody
-    public Iterable<Counter> getUserCountersList(String login, HttpServletResponse response) {
+    public Set<Counter> getUserCountersList(@RequestParam("login") String login, HttpServletResponse response) {
         User user = usersRepository.findByLogin(login);
         if (user == null) {
             response.setHeader("Error", "Not found user with this login: " + login);
@@ -172,6 +191,17 @@ public class Service {
         return countersRepository.getCountersByFlatId(flat.getId());
     }
 
+    @RequestMapping(value = ServiceApi.GET_COUNTERS_PATH, method = RequestMethod.POST)
+    @ResponseBody
+    public Counter getUserCounterByType(@PathVariable("flatId") Long flatid, @RequestParam("type") String type) {
+        return countersRepository.getCountersByFlatIdAndType(flatid, type);
+    }
+
+    @RequestMapping(value = ServiceApi.GET_COUNTERTYPES_PATH, method = RequestMethod.POST)
+    @ResponseBody
+    CounterType getCounterType(@RequestParam("typename") String typename) {
+        return counterTypesRepository.findByTypeName(typename);
+    }
 
     //вернуть показания определённого счётчика данной квартиры за указанный период снб тип, описание, значение, дата замера
     //вернуть показания всех счётчиков данной квартиры за указанный период то же самое что и выше, только для всех счётчиков

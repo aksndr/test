@@ -16,11 +16,11 @@ public class Counter {
     private String descr;
 
     @OneToOne
-    @JoinColumn(name = "type_id")
+    @JoinColumn(name = "typeid")
     private CounterType type;
 
     @ManyToOne
-    @JoinColumn(name = "flatId")
+    @JoinColumn(name = "flatid")
     private Flat flat;
 
     public String getDescr() {

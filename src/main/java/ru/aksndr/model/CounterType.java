@@ -13,8 +13,8 @@ public class CounterType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "type_name", nullable = false)
-    private String typeName;
+    @Column(name = "typename", nullable = false)
+    private String typename;
 
     public Long getId() {
         return id;
@@ -24,11 +24,11 @@ public class CounterType {
         this.id = id;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getTypename() {
+        return typename;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setTypename(String typename) {
+        this.typename = typename;
     }
 }
