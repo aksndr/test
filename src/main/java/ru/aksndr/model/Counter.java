@@ -1,6 +1,7 @@
 package ru.aksndr.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by aksndr on 19.08.14.
@@ -22,6 +23,9 @@ public class Counter {
     @ManyToOne
     @JoinColumn(name = "flatid")
     private Flat flat;
+
+    @OneToMany(mappedBy = "counter", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Record> records;
 
     public String getDescr() {
         return descr;
@@ -54,4 +58,13 @@ public class Counter {
     public void setFlat(Flat flat) {
         this.flat = flat;
     }
+
+    public Set<Record> getRecords() {
+        return records;
+    }
+
+    public void setRecords(Set<Record> records) {
+        this.records = records;
+    }
+
 }

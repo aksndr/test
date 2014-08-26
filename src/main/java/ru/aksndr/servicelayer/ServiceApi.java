@@ -35,8 +35,9 @@ public interface ServiceApi {
     @POST(ADD_USER_PATH)
     public User addUser(@Body User u);
 
+    @FormUrlEncoded
     @POST(ADD_HOUSE_PATH)
-    public House addHouse(@Body House h);
+    public House addHouse(@Field("address") String address);
 
     @GET(USER_PATH)
     public User getUser(@Path("id") Long id);

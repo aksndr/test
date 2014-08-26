@@ -46,7 +46,7 @@ public class CounterTest extends BaseTest {
     @Test
     public void addCounterTypes() {
         CounterType counterType = new CounterType();
-        counterType.setTypename("Счётчик воды");
+        counterType.setTypename("Счётчик горячей воды на кухне");
         counterType = api.addCounterType(counterType);
         Assert.assertNotNull(counterType);
     }
@@ -63,7 +63,6 @@ public class CounterTest extends BaseTest {
                 if (counter == null) {
                     Counter newCounter = new Counter();
                     newCounter.setSn(getRandomSn());
-                    newCounter.setDescr("Горячая в ванной");
                     newCounter.setType(getCounterTypeByName(type));
 
                     Counter received = api.addCounter(flatid, newCounter);
@@ -73,13 +72,6 @@ public class CounterTest extends BaseTest {
             }
 
         }
-        Counter counter = new Counter();
-        counter.setSn(446L);
-        counter.setDescr("Горячая в ванной");
-        counter.setType(getDummyCounterType());
-
-        Counter received = api.addCounter(3L, counter);
-        Assert.assertNotNull(received.getFlat());
 
     }
 

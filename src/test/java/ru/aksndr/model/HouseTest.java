@@ -32,9 +32,7 @@ public class HouseTest extends BaseTest {
 
     @Test
     public void addHouse() {
-        House h = new House();
-        h.setAddress("Жданова 9");
-        House retVal = api.addHouse(h);
+        House retVal = api.addHouse("Жданова 9");
         assertNotNull(retVal);
     }
 }

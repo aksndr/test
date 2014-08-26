@@ -55,10 +55,10 @@ public class Service {
 
     @RequestMapping(value = ServiceApi.ADD_HOUSE_PATH, method = RequestMethod.POST)
     @ResponseBody
-    public House addHouse(@RequestBody House h, HttpServletResponse response) {
-        House house = findHouseByAddress(h.getAddress());
+    public House addHouse(@RequestParam("address") String address, HttpServletResponse response) {
+        House house = findHouseByAddress(address);
         if (house != null) return house;
-        return houseRepository.save(h);
+        return houseRepository.save(new House(address));
     }
 
     @RequestMapping(value = ServiceApi.GET_HOUSE_PATH, method = RequestMethod.POST)
@@ -189,6 +189,12 @@ public class Service {
             return null;
         }
         return countersRepository.getCountersByFlatId(flat.getId());
+    }
+
+    @RequestMapping(value = ServiceApi.GET_COUNTERS_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public Set<Counter> getCountersByFlatId(@PathVariable("flatId") Long flatid) {
+        return countersRepository.getCountersByFlatId(flatid);
     }
 
     @RequestMapping(value = ServiceApi.GET_COUNTERS_PATH, method = RequestMethod.POST)

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
  * User: a.arzamastsev Date: 18.08.14 Time: 14:34
  */
 @Configuration
-@PropertySource("classpath:application.properties")
+@PropertySource({"classpath:application.properties"}) //,"classpath:hibernate.cfg.xml
 public class ServiceConfiguration {
 
 

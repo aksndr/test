@@ -32,7 +32,6 @@ public class UserTest extends BaseTest {
             assertEquals(u.getLastname(), r[2]);
             assertEquals(u.getFlat().getHouse().getAddress(), r[4]);
             assertTrue(u.getId() != 0);
-
         }
     }
 
