@@ -39,6 +39,10 @@ public class Service {
     @Autowired
     CounterTypesRepository counterTypesRepository;
 
+    @Qualifier("recordsRepository")
+    @Autowired
+    RecordsRepository recordsRepository;
+
     @RequestMapping(value = ServiceApi.USERS_PATH, method = RequestMethod.GET)
     @ResponseBody
     public Iterable<User> getUsersList(HttpServletResponse response) {
@@ -209,7 +213,24 @@ public class Service {
         return counterTypesRepository.findByTypeName(typename);
     }
 
+    @RequestMapping(value = ServiceApi.GET_ALL_COUNTERS_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public Iterable<Counter> getAllCounters() {
+        return countersRepository.findAll();
+    }
+
+    @RequestMapping(value = ServiceApi.ADD_RECORD_PATH, method = RequestMethod.POST)
+    @ResponseBody
+    public Record addRecord(@RequestBody Record record) {
+//        Record r = recordsRepository.findByCounterAndDate(record.getCounter(),record.getDatetime());
+//        if (r==null)
+        return recordsRepository.save(record);
+//        return r;
+    }
+
+
     //вернуть показания определённого счётчика данной квартиры за указанный период снб тип, описание, значение, дата замера
+
     //вернуть показания всех счётчиков данной квартиры за указанный период то же самое что и выше, только для всех счётчиков
     //вернуть список квартир данного дома с показателями за период, с фильтром по счётчикам
 

@@ -56,7 +56,7 @@ CREATE TABLE `counters`.`users` (
   CREATE TABLE  `counters`.`records` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
     `value` decimal(10,0) NOT NULL,
-    `date` datetime NOT NULL,
+    `datetime` datetime NOT NULL,
     `counterid` int(10) unsigned NOT NULL,
     PRIMARY KEY (`id`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

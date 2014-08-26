@@ -1,11 +1,6 @@
 package ru.aksndr.model;
 
-import org.hibernate.annotations.Type;
-import org.joda.time.DateTime;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -19,32 +14,30 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "date")
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
-    private DateTime date;
+    @Column(name = "datetime")
+    private String datetime;
 
     @ManyToOne
     @JoinColumn(name = "counterid")
     private Counter counter;
 
     @Column(name = "value", nullable = false)
-    private BigDecimal value;
+    private Integer value;
 
-    public Counter getCounterid() {
+    public Counter getCounter() {
         return counter;
     }
 
-    public void setCounterid(Counter counter) {
+    public void setCounter(Counter counter) {
         this.counter = counter;
     }
 
-    public DateTime getDate() {
-        return date;
+    public String getDatetime() {
+        return datetime;
     }
 
-    public void setDate(DateTime date) {
-        this.date = date;
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
     }
 
     public Long getId() {
@@ -55,25 +48,25 @@ public class Record {
         this.id = id;
     }
 
-    public BigDecimal getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getDate(), getCounterid());
+        return Objects.hash(getId(), getDatetime(), getCounter().getSn());
     }
 
     @Override
     public boolean equals(Object obj) {
         return (obj instanceof Record)
                 && Objects.equals(getId(), ((Record) obj).getId())
-                && Objects.equals(getCounterid(), ((Record) obj).getCounterid())
-                && Objects.equals(getDate(), ((Record) obj).getDate())
+                && Objects.equals(getCounter().getSn(), ((Record) obj).getCounter().getSn())
+                && Objects.equals(getDatetime(), ((Record) obj).getDatetime())
                 && Objects.equals(getValue(), ((Record) obj).getValue());
     }
 }

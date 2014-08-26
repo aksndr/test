@@ -20,10 +20,12 @@ public interface ServiceApi {
     public static final String ADD_NEW_USER_PATH = "/addnewuser";
     public static final String ADD_FLAT_PATH = "/addflat";
     public static final String GET_FLATS_PATH = "/houses/{houseId}/flats";
+    public static final String ADD_RECORD_PATH = "/counters/addrecord";
     public static final String GET_FLAT_PATH = "/flats";
     public static final String ADD_FLAT_TO_HOUSE_PATH = "/houses/addflat}";
     public static final String GET_COUNTERS_PATH = "/{flatId}/counters";
     public static final String GET_COUNTERTYPES_PATH = "/countertypes";
+    public static final String GET_ALL_COUNTERS_PATH = "/counters";
     public static final String ADD_COUNTERTYPE_PATH = "/add_countertype";
     public static final String ADD_COUNTER_PATH = "/{flatId}/addcounter";
     public static final String GET_COUNTER_PATH = "/counters/{sn}";
@@ -84,9 +86,18 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST(GET_COUNTERS_PATH)
-    Counter getUserCounterByType(@Path("flatId") Long flatid, @Field("type") String type);
+    public Counter getUserCounterByType(@Path("flatId") Long flatid, @Field("type") String type);
 
     @FormUrlEncoded
     @POST(GET_COUNTERTYPES_PATH)
-    CounterType getCounterTypeByTypeName(@Field("typename") String typename);
+    public CounterType getCounterTypeByTypeName(@Field("typename") String typename);
+
+    @GET(GET_ALL_COUNTERS_PATH)
+    public Set<Counter> getAllCounters();
+
+    @POST(ADD_RECORD_PATH)
+    public Record addRecord(@Body Record record);
+
+    @GET(GET_COUNTERS_PATH)
+    Set<Counter> getCountersByFlatId(@Path("flatId") Long flatid);
 }

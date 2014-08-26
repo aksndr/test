@@ -9,4 +9,5 @@ import ru.aksndr.model.Record;
  */
 @Repository
 public interface RecordsRepository extends CrudRepository<Record, Long> {
+//    public Record findByCounterAndDate(Counter counter, DateTime dateTime);
 }
