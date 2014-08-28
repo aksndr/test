@@ -5,7 +5,6 @@ package ru.aksndr.servicelayer;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,29 +18,24 @@ import java.util.Set;
 @Controller
 public class Service {
 
-    @Qualifier("usersRepository")
-    @Autowired
-    UsersRepository usersRepository;
+    private UsersRepository usersRepository;
+    private FlatsRepository flatsRepository;
+    private HouseRepository houseRepository;
+    private CountersRepository countersRepository;
+    private CounterTypesRepository counterTypesRepository;
+    private RecordsRepository recordsRepository;
 
-    @Qualifier("flatsRepository")
     @Autowired
-    FlatsRepository flatsRepository;
+    public Service(UsersRepository usersRepository, FlatsRepository flatsRepository, HouseRepository houseRepository,
+                   CountersRepository countersRepository, CounterTypesRepository counterTypesRepository, RecordsRepository recordsRepository) {
 
-    @Qualifier("houseRepository")
-    @Autowired
-    HouseRepository houseRepository;
-
-    @Qualifier("countersRepository")
-    @Autowired
-    CountersRepository countersRepository;
-
-    @Qualifier("counterTypesRepository")
-    @Autowired
-    CounterTypesRepository counterTypesRepository;
-
-    @Qualifier("recordsRepository")
-    @Autowired
-    RecordsRepository recordsRepository;
+        this.usersRepository = usersRepository;
+        this.flatsRepository = flatsRepository;
+        this.houseRepository = houseRepository;
+        this.countersRepository = countersRepository;
+        this.counterTypesRepository = counterTypesRepository;
+        this.recordsRepository = recordsRepository;
+    }
 
     @RequestMapping(value = ServiceApi.USERS_PATH, method = RequestMethod.GET)
     @ResponseBody
@@ -228,8 +222,21 @@ public class Service {
 //        return r;
     }
 
+    @RequestMapping(value = ServiceApi.GET_COUNTER_RECORDS_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public Iterable<Record> getCounterRecords(@PathVariable("sn") Long sn) {
+        Counter counter = countersRepository.getCounterBySn(sn);
+        return recordsRepository.findByCounter(counter);
+    }
 
     //вернуть показания определённого счётчика данной квартиры за указанный период снб тип, описание, значение, дата замера
+
+    @RequestMapping(value = ServiceApi.GET_FLATS_COUNTERS_RECORDS_PATH, method = RequestMethod.GET)
+    @ResponseBody
+    public Iterable<Record> getFlatsCounterRecords(@PathVariable("flatId") Long flatId) {
+        Set<Counter> counters = countersRepository.getCountersByFlatId(flatId);
+        return recordsRepository.findByCountersSns(counters);
+    }
 
     //вернуть показания всех счётчиков данной квартиры за указанный период то же самое что и выше, только для всех счётчиков
     //вернуть список квартир данного дома с показателями за период, с фильтром по счётчикам

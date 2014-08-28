@@ -29,6 +29,8 @@ public interface ServiceApi {
     public static final String ADD_COUNTERTYPE_PATH = "/add_countertype";
     public static final String ADD_COUNTER_PATH = "/{flatId}/addcounter";
     public static final String GET_COUNTER_PATH = "/counters/{sn}";
+    public static final String GET_COUNTER_RECORDS_PATH = "/counters/{sn}/records";
+    public static final String GET_FLATS_COUNTERS_RECORDS_PATH = "/{flatId}/counters/records";
     public static final String USER_PATH = "/{id}";
 
     @GET(USERS_PATH)
@@ -46,6 +48,9 @@ public interface ServiceApi {
 
     @GET(GET_COUNTER_PATH)
     public Counter getCounter(@Path("sn") Long sn);
+
+    @GET(GET_COUNTER_RECORDS_PATH)
+    public Counter getCounterRecords(@Path("sn") Long sn);
 
     @FormUrlEncoded
     @POST(USERS_COUNTERS_PATH)
