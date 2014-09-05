@@ -15,8 +15,10 @@ public interface RecordsRepository extends CrudRepository<Record, Long> {
     Iterable<Record> findByCounter(Counter counter);
 
     @Query("SELECT DISTINCT record FROM Record record WHERE record.counter IN " +
-            "(:counters)")
+            "(:counters) and record.recdate >= :dateStart and record.recdate <= :dateEnd ")
 //            "(SELECT DISTINCT counter FROM Counter counter WHERE counter.sn IN (:counterSns))")
-    Iterable<Record> findByCountersSns(@Param("counters") Iterable<Counter> counters);
+    Iterable<Record> findByCountersSns(@Param("counters") Iterable<Counter> counters,
+                                       @Param("dateStart") String dateStart,
+                                       @Param("dateEnd") String dateEnd);
 //    public Record findByCounterAndDate(Counter counter, DateTime dateTime);
 }

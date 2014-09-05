@@ -55,7 +55,9 @@ public class CounterTest extends BaseTest {
 
     @Test
     public void getFlatsCounters() {
-        Set<Counter> counterList = api.getCountersByFlatId(1L);
+        String dateStart = "2014-01-25";
+        String dateEnd = "2014-05-25";
+        Set<Record> counterList = api.getCountersRecordsByFlatIdAndDatesInterval(1L, dateStart, dateEnd);
         Assert.assertNotNull(counterList);
     }
 
@@ -136,15 +138,13 @@ public class CounterTest extends BaseTest {
             for (DateTime dt : dates) {
                 Record record = new Record();
                 record.setCounter(counter);
-                record.setDatetime(dt.toString("dd.MM.yyyy"));
+                record.setRecdate(dt.toString("yyyy.MM.dd HH:mm:ss"));
                 record.setValue(getRandomValue());
                 Record retval = api.addRecord(record);
                 Assert.assertNotNull(retval);
 
             }
         }
-
-
     }
 
     public CounterType getDummyCounterType() {

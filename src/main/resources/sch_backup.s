@@ -52,11 +52,11 @@ CREATE TABLE `counters`.`users` (
   AUTO_INCREMENT =1
   DEFAULT CHARSET =utf8;
 
-  DROP TABLE IF EXISTS `counters`.`records`;
-  CREATE TABLE  `counters`.`records` (
-    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-    `value` decimal(10,0) NOT NULL,
-    `datetime` datetime NOT NULL,
-    `counterid` int(10) unsigned NOT NULL,
-    PRIMARY KEY (`id`)
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ DROP TABLE IF EXISTS `counters`.`records`;
+ CREATE TABLE  `counters`.`records` (
+   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+   `value` int(10) unsigned NOT NULL,
+   `recdate` recdate NOT NULL,
+   `counterid` int(10) unsigned NOT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8;

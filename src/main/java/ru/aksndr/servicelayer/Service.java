@@ -12,6 +12,8 @@ import ru.aksndr.datalayer.*;
 import ru.aksndr.model.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -216,7 +218,7 @@ public class Service {
     @RequestMapping(value = ServiceApi.ADD_RECORD_PATH, method = RequestMethod.POST)
     @ResponseBody
     public Record addRecord(@RequestBody Record record) {
-//        Record r = recordsRepository.findByCounterAndDate(record.getCounter(),record.getDatetime());
+//        Record r = recordsRepository.findByCounterAndDate(record.getCounter(),record.getRecdate());
 //        if (r==null)
         return recordsRepository.save(record);
 //        return r;
@@ -233,9 +235,17 @@ public class Service {
 
     @RequestMapping(value = ServiceApi.GET_FLATS_COUNTERS_RECORDS_PATH, method = RequestMethod.GET)
     @ResponseBody
-    public Iterable<Record> getFlatsCounterRecords(@PathVariable("flatId") Long flatId) {
+    public Iterable<Record> getFlatsCounterRecords(@PathVariable("flatId") Long flatId,
+                                                   @RequestParam("dateStart") String dateStart,
+                                                   @RequestParam(value = "dateEnd", required = false) String dateEnd) {
         Set<Counter> counters = countersRepository.getCountersByFlatId(flatId);
-        return recordsRepository.findByCountersSns(counters);
+        if (dateEnd == null) {
+            Date dt = new java.util.Date();
+            SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+            dateEnd = sdf.format(dt);
+        }
+
+        return recordsRepository.findByCountersSns(counters, dateStart, dateEnd);
     }
 
     //вернуть показания всех счётчиков данной квартиры за указанный период то же самое что и выше, только для всех счётчиков

@@ -105,4 +105,7 @@ public interface ServiceApi {
 
     @GET(GET_COUNTERS_PATH)
     Set<Counter> getCountersByFlatId(@Path("flatId") Long flatid);
+
+    @GET(GET_FLATS_COUNTERS_RECORDS_PATH)
+    Set<Record> getCountersRecordsByFlatIdAndDatesInterval(@Path("flatId") Long flatid, @Query("dateStart") String dateStart, @Query("dateEnd") String dateEnd);
 }

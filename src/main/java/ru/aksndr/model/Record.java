@@ -14,8 +14,8 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "datetime")
-    private String datetime;
+    @Column(name = "recdate")
+    private String recdate;
 
     @ManyToOne
     @JoinColumn(name = "counterid")
@@ -32,12 +32,12 @@ public class Record {
         this.counter = counter;
     }
 
-    public String getDatetime() {
-        return datetime;
+    public String getRecdate() {
+        return recdate;
     }
 
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
+    public void setRecdate(String recdate) {
+        this.recdate = recdate;
     }
 
     public Long getId() {
@@ -58,7 +58,7 @@ public class Record {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getDatetime(), getCounter().getSn());
+        return Objects.hash(getId(), getRecdate(), getCounter().getSn());
     }
 
     @Override
@@ -66,7 +66,7 @@ public class Record {
         return (obj instanceof Record)
                 && Objects.equals(getId(), ((Record) obj).getId())
                 && Objects.equals(getCounter().getSn(), ((Record) obj).getCounter().getSn())
-                && Objects.equals(getDatetime(), ((Record) obj).getDatetime())
+                && Objects.equals(getRecdate(), ((Record) obj).getRecdate())
                 && Objects.equals(getValue(), ((Record) obj).getValue());
     }
 }
