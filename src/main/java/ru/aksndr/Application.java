@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan(basePackages = "ru.aksndr")
+@ComponentScan(basePackages = "ru.aksndr.controller")
 @EntityScan(basePackages = "ru.aksndr.model")
 @EnableJpaRepositories(basePackages = "ru.aksndr.datalayer")
 public class Application {
