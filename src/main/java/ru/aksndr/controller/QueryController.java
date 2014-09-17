@@ -94,7 +94,7 @@ public class QueryController extends BaseController {
     }
 
     //получить список счётчиков квартиры по id квартиры
-    @RequestMapping(value = ServiceApi.GET_COUNTERS_PATH, method = RequestMethod.GET)
+    @RequestMapping(value = ServiceApi.GET_FLAT_COUNTERS_PATH, method = RequestMethod.GET)
     @ResponseBody
     public Set<Counter> getCountersByFlatId(@PathVariable("flatId") Long flatid) {
         return countersRepository.getCountersByFlatId(flatid);

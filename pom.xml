@@ -17,6 +17,7 @@
         <spring-framework.version>4.0.6.RELEASE</spring-framework.version>
         <spring-data-jpa.version>1.6.2.RELEASE</spring-data-jpa.version>
         <spring.boot.version>1.1.5.RELEASE</spring.boot.version>
+        <spring.webmvc.version>4.0.6.RELEASE</spring.webmvc.version>
         <!-- Java EE / Java SE dependencies -->
         <jsp.version>2.2</jsp.version>
         <jstl.version>1.2</jstl.version>
@@ -121,6 +122,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>${spring.boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.webmvc.version}</version>
         </dependency>
 
         <dependency>

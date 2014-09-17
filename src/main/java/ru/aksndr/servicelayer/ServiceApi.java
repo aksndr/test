@@ -20,16 +20,16 @@ public interface ServiceApi {
     public static final String ADD_NEW_USER_PATH = "/addnewuser";
     public static final String ADD_FLAT_PATH = "/addflat";
     public static final String GET_FLATS_PATH = "/houses/{houseId}/flats";
-    public static final String ADD_RECORD_PATH = "/counters/addrecord";
+    public static final String ADD_RECORD_PATH = "/counters/record/add";
     public static final String GET_FLAT_PATH = "/flats";
     public static final String ADD_FLAT_TO_HOUSE_PATH = "/houses/addflat}";
-    public static final String GET_COUNTERS_PATH = "/{flatId}/counters";
+    public static final String GET_FLAT_COUNTERS_PATH = "/{flatId}/counters";
     public static final String GET_FLAT_COUNTER_PATH = "/{flatId}/counter";
     public static final String GET_COUNTERTYPES_PATH = "/countertypes";
     public static final String GET_COUNTERTYPE_PATH = "/countertype";
     public static final String GET_ALL_COUNTERS_PATH = "/counters";
-    public static final String ADD_COUNTERTYPE_PATH = "/add_countertype";
-    public static final String ADD_COUNTER_PATH = "/{flatId}/addcounter";
+    public static final String ADD_COUNTERTYPE_PATH = "/countertype/add";
+    public static final String ADD_COUNTER_PATH = "/{flatId}/counter/add";
     public static final String GET_COUNTER_PATH = "/counters/{sn}";
     public static final String GET_COUNTER_RECORDS_PATH = "/counters/{sn}/records";
     public static final String GET_FLATS_COUNTERS_RECORDS_PATH = "/{flatId}/counters/records";
@@ -96,7 +96,7 @@ public interface ServiceApi {
     @POST(ADD_RECORD_PATH)
     public Record addRecord(@Body Record record);
 
-    @GET(GET_COUNTERS_PATH)
+    @GET(GET_FLAT_COUNTERS_PATH)
     Set<Counter> getCountersByFlatId(@Path("flatId") Long flatid);
 
     @GET(GET_FLATS_COUNTERS_RECORDS_PATH)
@@ -104,4 +104,5 @@ public interface ServiceApi {
 
     @GET(GET_FLAT_COUNTER_PATH)
     Counter getUserCounterByType(@Path("flatId") Long flatid, @Query("type") String type);
+
 }
