@@ -6,6 +6,7 @@ import ru.aksndr.model.*;
 import ru.aksndr.servicelayer.ServiceApi;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -40,7 +41,7 @@ public class CommandController extends BaseController {
 
     @RequestMapping(value = ServiceApi.ADD_FLAT_TO_HOUSE_PATH, method = RequestMethod.POST)
     @ResponseBody
-    public Flat addFlat(@RequestParam("houseId") Long houseId, @RequestParam String flatnum, HttpServletResponse response) {
+    public Flat addFlat(@RequestParam("houseId") Long houseId, @RequestParam String flatnum, HttpServletResponse response) throws IOException {
         House h = houseRepository.findOne(houseId);
         List<Flat> flatList = flatsRepository.findByFlatNumAndAddress(flatnum, h.getAddress());
         if (flatList.size() == 0) {
@@ -48,12 +49,14 @@ public class CommandController extends BaseController {
             f.setHouse(h);
             f.setFlatnum(flatnum);
             return flatsRepository.save(f);
-        } else if (flatList.size() == 1) {
-            return flatList.get(0);
         }
-        response.setHeader("Error", "Found " + flatList.size() + " for the flat number: " + flatnum + " at address: " +
-                h.getAddress());
-        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        StringBuilder error = new StringBuilder()
+                .append("Flat with number ")
+                .append(flatnum)
+                .append(" at address: ")
+                .append(h.getAddress())
+                .append(" already exists.");
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST, error.toString());
         return null;
     }
 
