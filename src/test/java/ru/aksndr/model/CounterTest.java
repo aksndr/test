@@ -132,7 +132,7 @@ public class CounterTest extends BaseTest {
     public void createCounterRecordsTest() {
         Set<Counter> counters = api.getAllCounters();
         List<DateTime> dates = getPeriodCollection();
-        Assert.assertNotNull(counters);
+        Assert.assertNotSame(counters.size(), 0);
 
         for (Counter counter : counters) {
             for (DateTime dt : dates) {

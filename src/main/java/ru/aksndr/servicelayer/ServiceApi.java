@@ -83,7 +83,6 @@ public interface ServiceApi {
     @GET(GET_FLAT_PATH)
     public Long findFlatIdByLogin(@Query("login") String login);
 
-
     @GET(GET_COUNTERTYPES_PATH)
     public Set<String> getAllCounterTypes();
 
